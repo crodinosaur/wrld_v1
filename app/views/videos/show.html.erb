@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Video -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Video %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @video.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @video.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:comments) %></dt>
+      <dd><pre class="prettyprint"><%= @video.comments %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:video_url) %></dt>
+      <dd><pre class="prettyprint"><%= @video.video_url %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @video.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              videos_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_video_path(@video), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              video_path(@video),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @video.comments %>
-</p>
-
-<p>
-  <strong>Video url:</strong>
-  <%= @video.video_url %>
-</p>
-
-<p>
-  <strong>Entry:</strong>
-  <%= @video.entry %>
-</p>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
