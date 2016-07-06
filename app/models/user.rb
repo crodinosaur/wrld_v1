@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
   has_many :entries
+  has_many :created_events, class_name: 'Event', foreign_key: 'creator_id'
+  has_many :events, through: :entries
+  has_many :videos, through: :entries
+  has_many :payments, through: :entries
 end
