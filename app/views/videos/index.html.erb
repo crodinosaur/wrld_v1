@@ -8,7 +8,6 @@
       <th>ID</th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:comments) %></th>
       <th><%= model_class.human_attribute_name(:video_url) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -20,7 +19,6 @@
         <td><%= video.id %></td>
         <td><%= video.name %></td>
         <td><%= video.description %></td>
-        <td><%= video.comments %></td>
         <td><%= video.video_url %></td>
         <td><%=l video.created_at, format: :long %></td>
         <td>
