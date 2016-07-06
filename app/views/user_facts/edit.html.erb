@@ -1,0 +1,24 @@
+  
+<%= form_for current_user, url: user_fact_path(current_user), method: :put do |f| %>
+  First Name:<br />
+  <%= f.text_field :first_name %><br />
+  Last Name:<br />
+  <%= f.text_field :last_name %><br />
+  Date of Birth:<br />
+  <%= f.text_field :date_of_birth %><br />
+  State:<br />
+  <%= f.text_field :state %><br />
+  ZIP Code:<br />
+  <%= f.text_field :zip %><br />
+  Country:<br />
+  <%= f.text_field :country %><br />
+  Gender:<br />
+  <%= f.text_field :gender %><br />
+  Veteran? (type in true or false):<br />
+  <%= f.text_field :veteran %><br />
+  Bio<br />
+  <%= f.text_field :bio %><br />
+  Profile picture<br />
+  <%= f.text_field :picture %><br />
+  <%= f.submit "Submit" %>
+<% end %>

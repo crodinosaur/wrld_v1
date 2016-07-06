@@ -1,0 +1,2 @@
+module UserFactsHelper
+end
