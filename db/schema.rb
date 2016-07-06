@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701141245) do
+ActiveRecord::Schema.define(version: 20160706011347) do
 
   create_table "entries", force: true do |t|
     t.integer  "user_id"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20160701141245) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "payments", force: true do |t|
+    t.float    "amount"
+    t.integer  "entry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["entry_id"], name: "index_payments_on_entry_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
