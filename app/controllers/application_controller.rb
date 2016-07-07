@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  http_basic_authenticate_with(name: ENV['site_name'], password: ENV['site_password']) if Rails.env.production?
+  http_basic_authenticate_with(name: ENV['site_email'], password: ENV['site_password']) if Rails.env.production?
 
   private
   
