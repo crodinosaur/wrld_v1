@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   get 'pages/index'
 
-  resources :events
+  resources :events do
+   resources :entries
+  end
 
   resources :videos
   resources :user_facts
-  resources :entries
+
 
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords"}
   # The priority is based upon order of creation: first created -> highest priority.

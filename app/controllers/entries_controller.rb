@@ -18,6 +18,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
+    @event = Event.find(params[:event_id])
     @entry = Entry.new
   end
 
@@ -30,10 +31,12 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.user = current_user
+    @event = Event.find(params[:event_id])
+    @entry.event = @event
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+        format.html { redirect_to event_entry_path(@event, @entry), notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -74,6 +77,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:user_id, :event_id, :score, :terms)
+      params.require(:entry).permit(:score, :terms)
     end
 end
