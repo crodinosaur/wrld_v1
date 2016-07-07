@@ -13,6 +13,10 @@ class UserFactsController < ApplicationController
 		end
 	end
 
+	def show
+		@user = current_user
+	end
+
 	def user_fact_params
 		params.require(:user).permit(:first_name, :last_name, :date_of_birth, :state, :zip, :country, :gender, :veteran, :bio, :picture)
 	end

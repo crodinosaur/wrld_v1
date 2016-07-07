@@ -1,0 +1,12 @@
+First Name: <%= current_user.first_name %><br />
+Last Name: <%= current_user.last_name %><br />
+Date of Birth: <%= current_user.date_of_birth %><br />
+State: <%= current_user.state %><br />
+ZIP Code: <%= current_user.zip %><br />
+Country: <%= current_user.country %><br />
+Gender: <%= current_user.gender %><br />
+Veteran? <%= current_user.veteran %><br />
+Bio <%= current_user.bio %><br />
+Profile picture <%= current_user.picture %><br />
+
+<%= link_to 'Edit Profile', edit_user_fact_path(current_user), :class => 'btn btn-primary' %>
