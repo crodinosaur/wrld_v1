@@ -16,6 +16,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if defined?(Devise) %>
+        <li><%= link_to "About", static_pages_about_path %></li>
+        <li><%= link_to "FAQ", static_pages_faq_path %></li>
+        <li><%= link_to "Contact Us", static_pages_contact_us_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Events", events_path %></li>
           <li class="dropdown">
