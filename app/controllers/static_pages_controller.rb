@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   	if request.referer == new_user_session_url
   		redirect_to user_fact_path(current_user)
   	end
+  	@user = User.new
   end
 
   def about
