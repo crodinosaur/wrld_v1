@@ -18,6 +18,6 @@ class UserFactsController < ApplicationController
 	end
 
 	def user_fact_params
-		params.require(:user).permit(:first_name, :last_name, :date_of_birth, :state, :zip, :country, :gender, :veteran, :bio, :picture)
+		params.require(:user).permit(:first_name, :last_name, :dob, :state, :zip, :country, :gender, :veteran, :bio, :picture)
 	end
 end
