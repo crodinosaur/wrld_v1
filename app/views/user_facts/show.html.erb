@@ -52,18 +52,24 @@ Profile picture <%= current_user.picture %><br />
     </tr>
   </thead>
   <tbody>
-    <% current_user.events.each do |event| %>
-      <% if event.expired %>
-	    <tr>
-	      <td><%= event.id %></td>
-	      <td><%= event.name %></td>
-	      <td><%= event.category %></td>
-	      <td>Score</td>
-	      <td>Ranking</td>
-	      <td><%= event.prize %></td>
-	    </tr>
+
+    <% @entries.each do |entry| %>
+      <% puts "entry: #{entry.inspect}\n" %>
+      <% puts "event: #{entry.event.inspect}" %>
+      <% if entry.event.expired %>
+        <tr>
+          <td><%= entry.event.id %></td>
+          <td><%= entry.event.name %></td>
+          <td><%= entry.event.category %></td>
+          <td><%= entry.score %></td>
+          <td>Ranking</td>
+          <td><%= entry.event.prize %></td>
+        </tr>
       <% end %>
     <% end %>
+
+
+
   </tbody>
 </table>
 <h1>Friends</h1>

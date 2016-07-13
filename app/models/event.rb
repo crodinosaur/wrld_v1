@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  has_many :entries
+  has_many :entries, dependent: :destroy
   belongs_to :creator, class_name: 'User'
   has_many :users, through: :entries
   has_many :videos, through: :entries
