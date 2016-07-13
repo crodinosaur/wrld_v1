@@ -9,11 +9,12 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:rules) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Deadline</th>
+      <th>Prize</th>
+      <th>Competition Info</th>
+      <th>Enter?</th>
     </tr>
   </thead>
   <tbody>
@@ -21,23 +22,12 @@
       <tr>
         <td><%= event.id %></td>
         <td><%= event.name %></td>
-        <td><%= event.rules %></td>
-        <td><%= event.description %></td>
-        <td><%=l event.created_at, format: :long %></td>
-        <td>
-          <%= link_to event_path(event), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
-        </td>
+        <td><%= event.category %></td>
+        <td><%= event.deadline %></td>
+        <td><%= event.prize %></td>
+        <td><%= link_to "View", event_path(event), :class => 'btn btn-primary' %></td>
+        <td><%= link_to "Enter", new_event_entry_path(event), :class => 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_event_path,
-            :class => 'btn btn-primary' %>

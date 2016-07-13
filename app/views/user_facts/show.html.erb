@@ -1,3 +1,4 @@
+<h1>Personal Information</h1>
 First Name: <%= current_user.first_name %><br />
 Last Name: <%= current_user.last_name %><br />
 Date of Birth: <%= current_user.date_of_birth %><br />
@@ -10,3 +11,60 @@ Bio <%= current_user.bio %><br />
 Profile picture <%= current_user.picture %><br />
 
 <%= link_to 'Edit Profile', edit_user_fact_path(current_user), :class => 'btn btn-primary' %>
+
+<h1>My Current Competitions</h1>
+<%= link_to 'Create Competition', new_event_path, :class => 'btn btn-primary' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Deadline</th>
+      <th>Prize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.events.each do |event| %>
+      <% unless event.expired %>
+	    <tr>
+	      <td><%= event.id %></td>
+	      <td><%= event.name %></td>
+	      <td><%= event.category %></td>
+	      <td><%= event.deadline %></td>
+	      <td><%= event.prize %></td>
+	    </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>My Old Competitions</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Score</th>
+      <th>Ranking</th>
+      <th>Prize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.events.each do |event| %>
+      <% if event.expired %>
+	    <tr>
+	      <td><%= event.id %></td>
+	      <td><%= event.name %></td>
+	      <td><%= event.category %></td>
+	      <td>Score</td>
+	      <td>Ranking</td>
+	      <td><%= event.prize %></td>
+	    </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<h1>Friends</h1>
+<%= link_to 'Search Friends', '#', :class => 'btn btn-primary' %>
