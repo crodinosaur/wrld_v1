@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
 
   acts_as_followable
   acts_as_follower
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

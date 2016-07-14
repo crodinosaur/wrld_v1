@@ -76,11 +76,16 @@ Profile picture <%= current_user.picture %><br />
 Following: <%= current_user.follow_count %><br />
 Followers: <%= current_user.followers_count %><br />
 
+<h3>Following</h3>
 <% current_user.following_users.each do |u| %>
-  <%= u.first_name %>
-  <%= u.last_name %>
+  <%= link_to u.full_name, '#' %><br />
 <% end %>
 <br />
+
+<h3>Followers</h3>
+<% current_user.user_followers.each do |u| %>
+  <%= link_to u.full_name, '#' %><br />
+<% end %>
 <br />
 <%= link_to 'Search Friends', '#', :class => 'btn btn-primary' %>
 
