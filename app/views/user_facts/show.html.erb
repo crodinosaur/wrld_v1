@@ -73,4 +73,23 @@ Profile picture <%= current_user.picture %><br />
   </tbody>
 </table>
 <h1>Friends</h1>
+Following: <%= current_user.follow_count %><br />
+Followers: <%= current_user.followers_count %><br />
+
+<% current_user.follows.each do |f| %>
+<%= User.find(f.followable_id).first_name %>
+<%= User.find(f.followable_id).last_name %>
+<% end %>
+<br />
 <%= link_to 'Search Friends', '#', :class => 'btn btn-primary' %>
+
+
+
+
+
+
+
+
+
+
+

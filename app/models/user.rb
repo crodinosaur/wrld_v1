@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :events, through: :entries
   has_many :videos, through: :entries
   has_many :payments, through: :entries
+
+  acts_as_followable
+  acts_as_follower
 end
