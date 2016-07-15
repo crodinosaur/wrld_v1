@@ -1,14 +1,14 @@
 <h1>Personal Information</h1>
-First Name: <%= current_user.first_name %><br />
-Last Name: <%= current_user.last_name %><br />
-Date of Birth: <%= current_user.dob %><br />
-State: <%= current_user.state %><br />
-ZIP Code: <%= current_user.zip %><br />
-Country: <%= current_user.country %><br />
-Gender: <%= current_user.gender %><br />
-Veteran? <%= current_user.veteran %><br />
-Bio <%= current_user.bio %><br />
-Profile picture <%= current_user.picture %><br />
+First Name: <%= @user.first_name %><br />
+Last Name: <%= @user.last_name %><br />
+Date of Birth: <%= @user.dob %><br />
+State: <%= @user.state %><br />
+ZIP Code: <%= @user.zip %><br />
+Country: <%= @user.country %><br />
+Gender: <%= @user.gender %><br />
+Veteran? <%= @user.veteran %><br />
+Bio <%= @user.bio %><br />
+Profile picture <%= @user.picture %><br />
 
 <%= link_to 'Edit Profile', edit_user_fact_path(current_user), :class => 'btn btn-primary' %>
 
@@ -25,7 +25,7 @@ Profile picture <%= current_user.picture %><br />
     </tr>
   </thead>
   <tbody>
-    <% current_user.events.each do |event| %>
+    <% @user.events.each do |event| %>
       <% unless event.expired %>
 	    <tr>
 	      <td><%= event.id %></td>
@@ -73,18 +73,17 @@ Profile picture <%= current_user.picture %><br />
   </tbody>
 </table>
 <h1>Friends</h1>
-Following: <%= current_user.follow_count %><br />
-Followers: <%= current_user.followers_count %><br />
+Following: <%= @user.follow_count %><br />
+Followers: <%= @user.followers_count %><br />
 
 <h3>Following</h3>
-<% current_user.following_users.each do |u| %>
-  <%= link_to u.full_name, '#' %><br />
+<% @user.following_users.each do |u| %>
+  <%= link_to u.full_name, user_fact_path(u.id) %><br />
 <% end %>
-<br />
 
 <h3>Followers</h3>
-<% current_user.user_followers.each do |u| %>
-  <%= link_to u.full_name, '#' %><br />
+<% @user.user_followers.each do |u| %>
+  <%= link_to u.full_name, user_fact_path(u.id) %><br />
 <% end %>
 <br />
 <%= link_to 'Search Friends', '#', :class => 'btn btn-primary' %>

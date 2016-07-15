@@ -14,8 +14,8 @@ class UserFactsController < ApplicationController
 	end
 
 	def show
-		@user = current_user
-		@entries = current_user.entries
+		@user = User.find(params[:id])
+		@entries = User.find(params[:id]).entries
 	end
 
 	def user_fact_params
