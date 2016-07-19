@@ -15,4 +15,8 @@ class Event < ActiveRecord::Base
   # def self.expired
   # 	Event.where("deadline < ?", DateTime.now)
   # end
+
+  def private?
+    self.privy
+  end
 end

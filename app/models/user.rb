@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def invited?(event)
+    self.invited_events.include?(event)
+  end
 end

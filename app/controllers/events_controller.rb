@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :event_access, only: [:show]
   before_action :authenticate_user!
 
   # GET /events
@@ -68,8 +69,25 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def event_access
+      if @event.private? && !current_user.invited?(@event)
+        flash[:warning] = 'You do not have access to this event'
+        redirect_to events_path 
+      end
+
+      # current_user.invited_events.each do |event|
+      #   if event == @event
+      #     invited = true
+      #     break
+      #   else
+      #     invited = false
+      #   end
+      # end
+
+      # redirect_to root_path if !invited 
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :rules, :description, :deadline)
+      params.require(:event).permit(:name, :rules, :description, :deadline, :category, :prize, :privy)
     end
 end

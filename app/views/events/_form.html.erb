@@ -5,18 +5,21 @@
       <%= f.text_field :name, :class => 'text-field form-control' %>
     </div>
   </div>
+  
   <div class="form-group">
     <%= f.label :rules, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_area :rules, :class => 'text-field form-control' %>
     </div>
   </div>
+  
   <div class="form-group">
     <%= f.label :description, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_area :description, :class => 'text-field form-control' %>
     </div>
   </div>
+  
   <div class="form-group">
     <%= f.label :prize, :class => 'control-label col-md-2' %> 
     <div class="col-md-10">
@@ -30,10 +33,18 @@
       <%= f.date_field :deadline, :class => 'text-field form-control', value: 7.days.from_now.to_date %>
     </div>
   </div>
+
   <div class="form-group">
     <%= f.label :category, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
       <%= f.text_field :category, :class => 'text-field form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :private?, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :privy %>
     </div>
   </div>
 

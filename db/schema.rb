@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718134748) do
+ActiveRecord::Schema.define(version: 20160718151346) do
 
   create_table "entries", force: true do |t|
     t.integer  "user_id"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20160718134748) do
     t.datetime "updated_at"
     t.string   "category"
     t.string   "picture"
-    t.boolean  "public"
     t.string   "video"
     t.string   "prize"
     t.boolean  "expired",     default: false
     t.date     "deadline"
+    t.boolean  "privy",       default: false
   end
 
   create_table "follows", force: true do |t|
