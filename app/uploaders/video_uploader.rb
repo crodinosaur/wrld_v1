@@ -8,11 +8,10 @@ class VideoUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
-    # store somewhere else
+    storage :fog
   elsif Rails.env.development?
     storage :file
   end
-  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
