@@ -27,4 +27,4 @@
 </div>
 
 
-<%= image_tag(@video.video_url, style: 'width: 200px; height: 200px;') %>
+<%= video_tag(@video.video_url, style: 'width: 200px; height: 200px;', controls: true, autobuffer: true) %>
