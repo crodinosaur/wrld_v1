@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "acts_as_follower"
 gem 'carrierwave'
 gem 'fog'
+gem 'activeadmin', github: 'activeadmin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
