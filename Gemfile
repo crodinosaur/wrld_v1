@@ -18,6 +18,7 @@ gem "acts_as_follower"
 gem 'carrierwave'
 gem 'fog'
 gem 'activeadmin', github: 'activeadmin'
+gem 'country_select'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
