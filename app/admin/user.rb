@@ -4,7 +4,14 @@ index do
     column :first_name
     column :last_name
     column :email
-    column :dob 
+    column :dob do |u|
+    	# u.dob.try "strftime", '%m/%d/%Y'
+    	if u.dob
+    		u.dob.strftime("%m/%d/%Y") 
+    	else
+    		"NA"
+    	end
+    end  
     column :gender
     column :veteran
     column :country
