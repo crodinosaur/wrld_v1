@@ -2,6 +2,11 @@ class UserFactsController < ApplicationController
 
 	before_action :authenticate_user!
 	before_action :only_current_user_can_access, only: [:edit, :update]
+	
+	def index
+		@users = User.paginate(page: params[:page])
+	end
+
 	def edit
 	end
 

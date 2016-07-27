@@ -20,6 +20,7 @@ gem 'fog'
 gem 'activeadmin', github: 'activeadmin'
 gem 'country_select'
 gem 'strftime'
+gem 'will_paginate',           '3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
