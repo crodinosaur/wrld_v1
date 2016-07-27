@@ -1,4 +1,7 @@
 class UserFactsController < ApplicationController
+
+	before_action :authenticate_user!
+	before_action :only_current_user_can_access, only: [:edit, :update]
 	def edit
 	end
 
@@ -20,5 +23,11 @@ class UserFactsController < ApplicationController
 
 	def user_fact_params
 		params.require(:user).permit(:first_name, :last_name, :dob, :state, :zip, :country, :gender, :veteran, :bio, :picture)
+	end
+
+
+	def only_current_user_can_access
+		@user = User.find(params[:id])
+		redirect_to root_path unless current_user?(@user)
 	end
 end

@@ -10,7 +10,9 @@ Veteran? <%= @user.veteran %><br />
 Bio <%= @user.bio %><br />
 Profile picture <%= @user.picture %><br />
 
-<%= link_to 'Edit Profile', edit_user_fact_path(current_user), :class => 'btn btn-primary' %>
+<% if current_user?(@user) %>
+  <%= link_to 'Edit Profile', edit_user_fact_path(current_user), :class => 'btn btn-primary' %>
+<% end %>
 
 <h1>My Current Competitions</h1>
 <%= link_to 'Create Competition', new_event_path, :class => 'btn btn-primary' %>
