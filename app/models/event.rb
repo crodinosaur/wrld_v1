@@ -16,9 +16,6 @@ class Event < ActiveRecord::Base
   # 	Event.where("deadline < ?", DateTime.now)
   # end
 
-
-  searchkick
-
   def private?
     self.privy
   end
