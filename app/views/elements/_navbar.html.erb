@@ -17,7 +17,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if defined?(Devise) %>
         <li>
-          <%= form_tag events_path do %>
+          <%= form_tag search_path, method: :get do %>
             <p>
               <%= text_field_tag :search %>
               <%= submit_tag "Search" %>

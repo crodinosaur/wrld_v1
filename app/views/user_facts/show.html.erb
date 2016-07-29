@@ -1,7 +1,7 @@
 <h1>Personal Information</h1>
 <%= gravatar_for @user %><br />
 Name: <%= @user.full_name %><br />
-Date of Birth: <%= @user.dob %><br />
+Date of Birth: <%= @user.dob.try "strftime", "%m/%d/%Y" %><br />
 State: <%= @user.state %><br />
 ZIP Code: <%= @user.zip %><br />
 Country: <%= @user.country %><br />
@@ -13,27 +13,32 @@ Bio: <%= @user.bio %><br />
 <% end %>
 
 <h1>My Current Competitions</h1>
-<%= link_to 'Create Competition', new_event_path, :class => 'btn btn-primary' %>
+<%= link_to 'View All Competitions', events_path, :class => 'btn btn-primary' %>
+<%= link_to 'Create New Competition', new_event_path, :class => 'btn btn-primary' %>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Category</th>
+      <th>Score</th>
       <th>Deadline</th>
       <th>Prize</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @user.events.each do |event| %>
-      <% unless event.expired %>
-	    <tr>
-	      <td><%= event.id %></td>
-	      <td><%= event.name %></td>
-	      <td><%= event.category %></td>
-	      <td><%= event.deadline %></td>
-	      <td><%= event.prize %></td>
-	    </tr>
+    <% @user.entries.each do |entry| %>
+      <% unless entry.event.expired %>
+        <tr>
+          <td><%= entry.event.id %></td>
+          <td><%= entry.event.name %></td>
+          <td><%= entry.event.category %></td>
+          <td><%= entry.score %></td>
+          <td><%= entry.event.deadline.try "strftime", "%m/%d/%Y" %></td>
+          <td><%= entry.event.prize %></td>
+          <td><%= link_to "Edit", edit_event_entry_path(entry.event, entry), :class => 'btn btn-primary' %></td>
+        </tr>
       <% end %>
     <% end %>
   </tbody>
@@ -53,7 +58,7 @@ Bio: <%= @user.bio %><br />
   </thead>
 
   <tbody>
-    <% @entries.each do |entry| %>
+    <% @user.entries.each do |entry| %>
       <% puts "entry: #{entry.inspect}\n" %>
       <% puts "event: #{entry.event.inspect}" %>
       <% if entry.event.expired %>

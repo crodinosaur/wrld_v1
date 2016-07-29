@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721174030) do
+ActiveRecord::Schema.define(version: 20160729001945) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160721174030) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "score"
-    t.string   "terms"
+    t.boolean  "terms"
   end
 
   add_index "entries", ["event_id"], name: "index_entries_on_event_id"

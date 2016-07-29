@@ -52,7 +52,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to event_entry_path(@event, @entry), notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to event_entry_path(@event, @entry), notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,7 @@ class EntriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
+      @user = current_user
       @entry = Entry.find(params[:id])
       @event = Event.find(params[:event_id])
     end

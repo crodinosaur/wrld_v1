@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'pages/index'
 
+  get 'search', to: 'events#search', as: :search
+
   resources :events do
    resources :entries
   end
