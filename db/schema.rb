@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729001945) do
+ActiveRecord::Schema.define(version: 20160801175918) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160729001945) do
     t.boolean  "expired",     default: false
     t.date     "deadline"
     t.boolean  "privy",       default: false
+    t.decimal  "bet"
   end
 
   create_table "follows", force: true do |t|

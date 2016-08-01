@@ -12,6 +12,26 @@ class Event < ActiveRecord::Base
   # 	self.deadline < DateTime.now
   # end
 
+  before_create :handle_bets
+
+  validates :bet, numericality: true
+
+  # validate :bet_is_greater_than_5
+
+
+  # def bet_is_greater_than_5
+  #   if bet
+  #     if bet > 5
+  #       # all good. do nothing
+  #     else
+  #       self.errors.add(:bet, "Sorry.  You must have a minimum bet of 5")
+  #     end
+  #   end
+  # end
+
+  def handle_bets
+      self.bet = nil unless self.private?
+  end
 
   # def self.expired
   # 	Event.where("deadline < ?", DateTime.now)
