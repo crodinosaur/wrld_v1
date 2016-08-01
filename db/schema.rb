@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801175918) do
+ActiveRecord::Schema.define(version: 20160801212559) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -68,10 +68,12 @@ ActiveRecord::Schema.define(version: 20160801175918) do
     t.string   "picture"
     t.string   "video"
     t.string   "prize"
-    t.boolean  "expired",     default: false
+    t.boolean  "expired",      default: false
     t.date     "deadline"
-    t.boolean  "privy",       default: false
+    t.boolean  "privy",        default: false
     t.decimal  "bet"
+    t.text     "instructions"
+    t.decimal  "entry_fee"
   end
 
   create_table "follows", force: true do |t|

@@ -7,14 +7,23 @@ class Event < ActiveRecord::Base
   has_many :videos, through: :entries
   has_many :payments, through: :entries
 
+# VALIDATIONS -->
+
   validates :name, presence: true
-  # def expired?
-  # 	self.deadline < DateTime.now
-  # end
+  validates :category, presence: true
+  validates :description, presence: true
+  validates :rules, presence: true
+  validates :deadline, presence: true
+  validates :bet, numericality: true
+
 
   before_create :handle_bets
 
-  validates :bet, numericality: true
+  after_find do
+    self.expired = 1 if self.deadline < DateTime.now
+  end
+
+  
 
   # validate :bet_is_greater_than_5
 
