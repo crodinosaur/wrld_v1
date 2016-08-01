@@ -37,7 +37,7 @@ Bio: <%= @user.bio %><br />
           <td><%= entry.score %></td>
           <td><%= entry.event.deadline.try "strftime", "%m/%d/%Y" %></td>
           <td><%= entry.event.prize %></td>
-          <td><%= link_to "Edit", edit_event_entry_path(entry.event, entry), :class => 'btn btn-primary' %></td>
+          <td><%= link_to "View", event_entry_path(entry.event, entry), :class => 'btn btn-primary' %></td>
         </tr>
       <% end %>
     <% end %>

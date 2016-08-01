@@ -17,7 +17,17 @@
 		<%= bootstrap_flash %>
 
 		<%= yield %>
-	</div>
+  </div>
+
+  <nav class="nav navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "About", static_pages_about_path %></li>
+        <li><%= link_to "FAQ", static_pages_faq_path %></li>
+        <li><%= link_to "Contact Us", static_pages_contact_us_path %></li>
+      </ul>
+    </div>
+  </nav>
 	<script src="http://vjs.zencdn.net/5.10.7/video.js"></script>
 </body>
 </html>
