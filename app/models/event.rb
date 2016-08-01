@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   # 	self.deadline < DateTime.now
   # end
 
+
   # def self.expired
   # 	Event.where("deadline < ?", DateTime.now)
   # end

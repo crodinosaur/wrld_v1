@@ -21,4 +21,19 @@ class User < ActiveRecord::Base
   def invited?(event)
     self.invited_events.include?(event)
   end
+
+  def ranking(event, entry)
+    if event.users.include? self
+      @entries = event.entries.order(score: :desc)
+      puts "@entries are #{@entries.inspect}\n"
+      @entry = entry
+      puts "@entry is #{@entry.inspect}\n"
+      @ranking = @entries.find_index(@entry)
+      puts "@ranking is #{@ranking}"
+      return @ranking + 1
+    else
+      return nil
+    end
+  end
+
 end

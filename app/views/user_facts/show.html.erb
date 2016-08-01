@@ -67,7 +67,7 @@ Bio: <%= @user.bio %><br />
           <td><%= entry.event.name %></td>
           <td><%= entry.event.category %></td>
           <td><%= entry.score %></td>
-          <td>Ranking</td>
+          <td><%= current_user.ranking(entry.event, entry) %> / <%= entry.event.entries.count %></td>
           <td><%= entry.event.prize %></td>
         </tr>
       <% end %>
