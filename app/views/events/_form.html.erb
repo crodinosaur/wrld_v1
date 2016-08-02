@@ -75,6 +75,11 @@
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn btn-default' %>
     </div>
   </div>
+
+
+    <%= f.fields_for :invitations, @a do |i| %>
+      <%= i.check_box :user_id, {checked: false}, i.object.user.id %><%= i.label :user_id, "#{i.object.user.first_name}" %><br />
+    <% end %>
 <% end %>
 
 <script>

@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   validates :bet, numericality: true
 
   
-
+  accepts_nested_attributes_for :invitations
   after_find do
     self.expired = 1 if self.deadline < DateTime.now
   end
