@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
   validates :category, presence: true
   validates :description, presence: true
   validates :rules, presence: true
+  validates :instructions, presence: true
   validates :deadline, presence: true
   validates :bet, numericality: true
 
