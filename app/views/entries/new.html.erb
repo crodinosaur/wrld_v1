@@ -2,6 +2,9 @@
 	<%= f.text_field :score, placeholder: "score" %>
 	<%= f.fields_for :video, @video do |v| %>
 		<%= v.file_field :video_url %>
+		<%= v.hidden_field :video_url_cache %>
 	<% end %>
+	<%= f.check_box :tos %>
+	<%= f.label :tos, "Please accept the Terms of Service" %><br />
 	<%= f.submit "Submit" %>
 <% end %>

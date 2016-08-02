@@ -82,6 +82,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:score, :terms, video_attributes: [:video_url])
+      params.require(:entry).permit(:score, :terms, :tos, video_attributes: [:video_url, :video_url_cache])
     end
 end

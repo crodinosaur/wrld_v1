@@ -6,4 +6,7 @@ class Entry < ActiveRecord::Base
   has_one :payment
 
   validates :event_id, presence: true
+  validates :video, presence: true
+
+  validates_acceptance_of :tos, allow_nil: false
 end
