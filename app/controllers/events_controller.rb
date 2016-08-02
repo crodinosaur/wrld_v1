@@ -19,6 +19,14 @@
   # GET /events/new
   def new
     @event = Event.new
+
+    @following_users = current_user.following_users
+    # @invitations = Array.new
+    # @following_users.each do |u|
+    #   @invitations.push Invitation.new(user: u, event: @event)
+    # end
+
+    @invitations = @following_users.collect{|u| @event.invitations.build(user: u)}
   end
 
   # GET /events/1/edit
