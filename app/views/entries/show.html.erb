@@ -5,6 +5,8 @@
 
 Score: <%= @entry.score %>
 
+<%= video_tag @entry.video.video_url %>
+
 <div class="form-group">
   <%= link_to 'Back to Profile',
               user_fact_path(@user), :class => 'btn btn-default'  %>

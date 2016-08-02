@@ -1,4 +1,7 @@
 <%= form_for [@event, @entry] do |f| %>
 	<%= f.text_field :score, placeholder: "score" %>
+	<%= f.fields_for :video, @video do |v| %>
+		<%= v.file_field :video_url %>
+	<% end %>
 	<%= f.submit "Submit" %>
 <% end %>

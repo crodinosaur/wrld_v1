@@ -22,6 +22,7 @@ class EntriesController < ApplicationController
   def new
     @event = Event.find(params[:event_id])
     @entry = Entry.new
+    @video = Video.new(entry: @entry)
   end
 
   # GET /entries/1/edit
@@ -81,6 +82,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.require(:entry).permit(:score, :terms)
+      params.require(:entry).permit(:score, :terms, video_attributes: [:video_url])
     end
 end
