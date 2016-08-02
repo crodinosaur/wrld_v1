@@ -27,7 +27,7 @@
           <li>
             <%= link_to user_fact_path(current_user) do %>
               <%= gravatar_for(current_user, size: 30) %>
-              <%= current_user.first_name.capitalize %>
+              <%= current_user.first_name.try(:capitalize) %>
             <% end %>
           </li>
           <li class="dropdown">
