@@ -1,7 +1,9 @@
-class EventsController < ApplicationController
+  class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :event_access, only: [:show]
   before_action :authenticate_user!, except: [:search]
+  before_action :expiration, only: [:create, :update]
+
 
   # GET /events
   # GET /events.json
@@ -30,9 +32,10 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
+        puts @event.errors.full_messages
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -44,9 +47,10 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to event_path(@event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
+        puts @event.errors.full_messages
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -91,6 +95,11 @@ class EventsController < ApplicationController
 
       # redirect_to root_path if !invited 
     end
+
+    def expiration
+      @event.update_attributes(expired: @event.expired?)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:name, :instructions, :rules, :description, :deadline, :category, :prize, :privy, :bet, :entry_fee)

@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   has_many :videos, through: :entries
   has_many :payments, through: :entries
 
+  before_validation :handle_bets, only: [:create, :update]
+
 # VALIDATIONS -->
 
   validates :name, presence: true
@@ -17,8 +19,7 @@ class Event < ActiveRecord::Base
   validates :deadline, presence: true
   validates :bet, numericality: true
 
-
-  before_create :handle_bets
+  
 
   after_find do
     self.expired = 1 if self.deadline < DateTime.now
@@ -39,15 +40,20 @@ class Event < ActiveRecord::Base
   #   end
   # end
 
-  def handle_bets
-      self.bet = nil unless self.private?
-  end
-
   # def self.expired
   # 	Event.where("deadline < ?", DateTime.now)
   # end
 
+  def expired?
+    self.expired = false unless self.deadline > DateTime.now
+  end
+
   def private?
     self.privy
   end
+
+  def handle_bets
+    self.bet = 0 unless self.private?
+  end
+
 end

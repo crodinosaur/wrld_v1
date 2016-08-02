@@ -76,3 +76,21 @@
     </div>
   </div>
 <% end %>
+
+<script>
+
+$('#event_privy').click(function(){
+  if($('#event_privy').is(':checked')){
+    $('#bet_holder').removeClass('hidden');
+  }else{
+    $('#bet_holder').addClass('hidden');
+  }
+});
+// $('#event_privy').toggle("slow", function(){
+//  alert('yolo');
+// });
+// if($('#event_privy').is(':checked')){
+//  $('#bet_holder').show();
+// }
+
+</script>
