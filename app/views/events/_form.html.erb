@@ -75,10 +75,6 @@
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn btn-default' %>
     </div>
   </div>
-
-  <%= f.fields_for :invitations, @invitations  do |i| %>
-    <%= i.check_box :user_id %> <%= i.label :user_id %>
-  <% end %>
 <% end %>
 
 <script>
@@ -90,5 +86,11 @@ $('#event_privy').click(function(){
     $('#bet_holder').addClass('hidden');
   }
 });
+// $('#event_privy').toggle("slow", function(){
+//  alert('yolo');
+// });
+// if($('#event_privy').is(':checked')){
+//  $('#bet_holder').show();
+// }
 
 </script>
