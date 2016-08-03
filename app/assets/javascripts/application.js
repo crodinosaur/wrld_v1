@@ -13,6 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap
 //= require rails.validations
-//= require_tree .
+//= require unify/vendor/jquery-migrate
+//= require unify/vendor/bootstrap
+//= require unify/vendor/back-to-top
+//= require unify/vendor/smoothScroll
+//= require unify/vendor/jquery.plugin
+//= require unify/vendor/jquery.countdown
+//= require unify/vendor/jquery.backstretch
+//= require_tree ./unify/custom
