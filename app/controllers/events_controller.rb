@@ -39,6 +39,8 @@
         format.html { redirect_to event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
+        users = current_user.following_users
+        @a = users.collect {|u| @event.invitations.build(user: u)}
         puts @event.errors.full_messages
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
