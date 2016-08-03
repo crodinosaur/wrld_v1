@@ -19,6 +19,10 @@
   # GET /events/new
   def new
     @event = Event.new
+    puts "current_user is #{current_user.inspect}"
+    puts "YO: #{current_user.following_users.inspect}"
+    users = current_user.following_users
+    @a = users.collect {|u| @event.invitations.build(user: u)}
   end
 
   # GET /events/1/edit
@@ -35,6 +39,8 @@
         format.html { redirect_to event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
+        users = current_user.following_users
+        @a = users.collect {|u| @event.invitations.build(user: u)}
         puts @event.errors.full_messages
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -97,11 +103,11 @@
     end
 
     def expiration
-      @event.update_attributes(expired: @event.expired?)
+      # @event.update_attributes(expired: @event.expired?)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :instructions, :rules, :description, :deadline, :category, :prize, :privy, :bet, :entry_fee)
+      params.require(:event).permit(:name, :instructions, :rules, :description, :deadline, :category, :prize, :privy, :bet, :entry_fee, invitations_attributes: [:user_id])
     end
 end

@@ -2,6 +2,13 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => Event %></h1>
 </div>
+<% if @event.errors.any? %>
+	<div class = "alert alert-danger" %>
+		<% @event.errors.full_messages.each do |m| %>
+			<%= m %><br />
+		<% end %>
+	</div>
+<% end %>
 <%= render :partial => 'form' %>
 
 

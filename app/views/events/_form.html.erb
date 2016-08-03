@@ -1,4 +1,5 @@
-<%= form_for @event, :html => { :class => 'form-horizontal form-model' } do |f| %>
+<%= form_for @event, :html => { :class => 'form-horizontal form-model' }, validate: true do |f| %>
+  
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -75,6 +76,11 @@
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn btn-default' %>
     </div>
   </div>
+
+
+    <%= f.fields_for :invitations, @a do |i| %>
+      <%= i.check_box :user_id, {checked: false}, i.object.user.id, nil %><%= i.label :user_id, "#{i.object.user.first_name}" %><br />
+    <% end %>
 <% end %>
 
 <script>
