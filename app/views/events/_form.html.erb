@@ -78,7 +78,7 @@
 
 
     <%= f.fields_for :invitations, @a do |i| %>
-      <%= i.check_box :user_id, {checked: false}, i.object.user.id %><%= i.label :user_id, "#{i.object.user.first_name}" %><br />
+      <%= i.check_box :user_id, {checked: false}, i.object.user.id, nil %><%= i.label :user_id, "#{i.object.user.first_name}" %><br />
     <% end %>
 <% end %>
 
