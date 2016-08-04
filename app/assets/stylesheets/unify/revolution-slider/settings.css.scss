@@ -453,10 +453,10 @@ img.tp-slider-alternative-image	{
 	-	DOTTED OVERLAYS	-
 *********************************/
 .tp-dottedoverlay						{	background-repeat:repeat;width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:3}
-.tp-dottedoverlay.twoxtwo				{	background:url(../assets/gridtile.png)}
-.tp-dottedoverlay.twoxtwowhite			{	background:url(../assets/gridtile_white.png)}
-.tp-dottedoverlay.threexthree			{	background:url(../assets/gridtile_3x3.png)}
-.tp-dottedoverlay.threexthreewhite		{	background:url(../assets/gridtile_3x3_white.png)}
+.tp-dottedoverlay.twoxtwo				{	background:image-url('unify/revolution-slider/gridtile.png')}
+.tp-dottedoverlay.twoxtwowhite			{	background:image-url('unify/revolution-slider/gridtile_white.png')}
+.tp-dottedoverlay.threexthree			{	background:image-url('unify/revolution-slider/gridtile_3x3.png')}
+.tp-dottedoverlay.threexthreewhite		{	background:image-url('unify/revolution-slider/gridtile_3x3_white.png')}
 
 
 /******************************
@@ -849,7 +849,7 @@ img.tp-slider-alternative-image	{
 /************************************
 -	TP BANNER TIMER		-
 *************************************/
-.tp-bannertimer								{	visibility: hidden; width:100%; height:5px; /*background:url(../assets/timer.png);*/ background: #fff; background: rgba(0,0,0,0.15); position:absolute; z-index:200; top:0px}
+.tp-bannertimer								{	visibility: hidden; width:100%; height:5px; /*background:image-url('unify/revolution-slider/timer.png);*/ background: #fff; background: rgba(0,0,0,0.15); position:absolute; z-index:200; top:0px}
 .tp-bannertimer.tp-bottom					{	top:auto; bottom:0px !important;height:5px}
 
 
@@ -875,8 +875,8 @@ img.tp-slider-alternative-image	{
 
 /*  CAPTION SLIDELINK   **/
 .caption.slidelink a div,
-.tp-caption.slidelink a div {	width:3000px; height:1500px;  background:url(../assets/coloredbg.png) repeat}
-.tp-caption.slidelink a span{	background:url(../assets/coloredbg.png) repeat}
+.tp-caption.slidelink a div {	width:3000px; height:1500px;  background:image-url('unify/revolution-slider/coloredbg.png') repeat}
+.tp-caption.slidelink a span{	background:image-url('unify/revolution-slider/coloredbg.png') repeat}
 .tp-shape {	width:100%;height:100%;}
 
 
@@ -896,7 +896,7 @@ img.tp-slider-alternative-image	{
 	width: 40px;
 	height: 40px;
 	background-color: #fff;
-	background:url(../assets/loader.gif) no-repeat center center;
+	background:image-url('unify/revolution-slider/loader.gif') no-repeat center center;
 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
 	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
 	margin-top:-20px;
@@ -927,7 +927,7 @@ img.tp-slider-alternative-image	{
 
 
 .tp-loader.spinner5 	{	
-	background:url(../assets/loader.gif) no-repeat 10px 10px;
+	background:image-url('unify/revolution-slider/loader.gif') no-repeat 10px 10px;
 	background-color:#fff;
 	margin:-22px -22px;
 	width:44px;height:44px;
