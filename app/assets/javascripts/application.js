@@ -14,4 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require rails.validations
-//= require_tree ./unify/vendor/revolution-slider
+//= require unify/vendor/revolution-slider/jquery.themepunch.tools.min
+//= require unify/vendor/revolution-slider/jquery.themepunch.revolution.min
+//= require unify/vendor/revolution-slider/revolution.extension.actions.min
+//= require unify/vendor/revolution-slider/revolution.extension.carousel.min
+//= require unify/vendor/revolution-slider/revolution.extension.kenburn.min
+//= require unify/vendor/revolution-slider/revolution.extension.layeranimation.min
+//= require unify/vendor/revolution-slider/revolution.extension.migration.min
+//= require unify/vendor/revolution-slider/revolution.extension.navigation.min
+//= require unify/vendor/revolution-slider/revolution.extension.parallax.min
+//= require unify/vendor/revolution-slider/revolution.extension.slideanims.min
+//= require unify/vendor/revolution-slider/revolution.extension.video.min
+
