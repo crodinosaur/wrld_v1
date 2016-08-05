@@ -10,7 +10,13 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
-*= require_tree .
+*= require unify/revolution-slider/pe-icon-7-stroke.css.scss
+*= require unify/revolution-slider/font-awesome.min.css.scss
+*= require unify/revolution-slider/settings.css.scss
+*= require unify/revolution-slider/layers.css
+*= require unify/revolution-slider/navigation.css
+*= require unify/revolution-slider/style.css
+*= require unify/revolution-slider/custom.css
 *= require_self
 *= stub active_admin
 */
